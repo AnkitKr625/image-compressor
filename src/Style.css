@@ -1,0 +1,30 @@
+.flex-center {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  justify-content: center;
+}
+
+.flex-column-center {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: center;
+  justify-content: center;
+}
+
+.ma-pa {
+  margin: 4px;
+  padding: 4px;
+}
+
+.drag-drop-area {
+  width: 800px;
+  height: 200px;
+  background-color: #B2E7E1;
+  border: dotted #4BACA1 4px;
+}
+
+#img-preview > span {
+  border: solid black 2px;
+}
