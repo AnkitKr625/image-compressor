@@ -88,8 +88,14 @@ function ImageUploader() {
 
   return (
     <>
-      <div className="drag-drop-area flex-center ma-pa" onDragOver={(e) => dragOverHandler(e)} onDrop={(e) => dropHandler(e)}>
-        <button onClick={uploadImageClicked} className='ma-pa'>Click Here to choose image</button>
+      <div className="drag-drop-area flex-center ma-pa" onClick={uploadImageClicked} onDragOver={(e) => dragOverHandler(e)} onDrop={(e) => dropHandler(e)}>
+
+      <div className='flex-column-center'>
+        <svg width="70" height="54">
+          <path fill="#a2c6f0" d="M47.727 48v-6.4h7.955c4.393 0 7.954-3.582 7.954-8 0-4.006-2.947-7.382-6.851-7.924l-2.556-.355-.183-2.588C53.4 13.56 45.787 6.4 36.591 6.4c-9.201 0-16.815 7.168-17.456 16.345l-.241 3.447-3.399-.505a8 8 0 00-1.177-.087c-4.393 0-7.954 3.582-7.954 8s3.561 8 7.954 8h11.137V48H14.318C6.41 48 0 41.553 0 33.6c0-7.573 5.813-13.78 13.196-14.356C15.397 8.22 25.083 0 36.59 0c11.735 0 21.576 8.548 23.517 19.901C65.893 21.787 70 27.252 70 33.6 70 41.553 63.59 48 55.682 48h-7.955zm-6.394-13v19h-9.666V35H22l14.5-19L51 35h-9.667z"></path>
+          </svg>
+          <div style={{color: '#a2c6f0'}}>Drag & drop here to upload or <strong style={{color: '#4a90e2'}}>Browse</strong></div>
+        </div>
         <input
           type="file"
           ref={inputRef}
@@ -102,12 +108,12 @@ function ImageUploader() {
       <div id="img-preview" className='flex-center'>
         <span style={ !uploadedImg ? {visibility: 'hidden'} : {} } className='ma-pa flex-column-center'>
           <span>Uploaded Image</span>
-          <img id='uploadedImgRef' src={uploadedImg} alt={'img'}/>
+          <img id='uploadedImgRef' src={uploadedImg} alt={'img'} width={300}/>
           <div className='ma-pa'> Size: {initialSize} Bytes</div>
         </span>
         <span style={ !compressedImg ? {visibility: 'hidden'} : {} } className='ma-pa flex-column-center'>
           <span>Compressed Image</span>
-          <img src={compressedImg} alt={'img'}/>
+          <img src={compressedImg} alt={'img'} width={300}/>
           <div className='ma-pa'> Size: {finalSize} Bytes</div>
         </span>
       </div>
@@ -117,7 +123,7 @@ function ImageUploader() {
           <input type="range" name="quality" id="qualityRange" max={100} min={1} value={quality} onChange={(e) =>  setQuality(parseInt(e.target.value))}/>
         </span>
         <div>
-          <button className='ma-pa' onClick={download}>Download</button>
+          <button className='ma-pa btn' onClick={download}>Download</button>
         </div>
       </div> : ''}
     </>
