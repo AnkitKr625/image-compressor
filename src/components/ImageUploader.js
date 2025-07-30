@@ -123,7 +123,7 @@ function ImageUploader() {
           <input type="range" name="quality" id="qualityRange" max={100} min={1} value={quality} onChange={(e) =>  setQuality(parseInt(e.target.value))}/>
         </span>
         <div>
-          <button className='ma-pa btn' onClick={download}>Download Image</button>
+          <button className='ma-pa btn' onClick={download}>Download</button>
         </div>
       </div> : ''}
     </>
